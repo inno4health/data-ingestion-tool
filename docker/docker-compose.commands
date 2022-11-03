@@ -1,0 +1,5 @@
+docker-compose -f .\data-ingestion-tool\docker\docker-compose.yml --project-directory .\ -p i4h up -d
+docker-compose -f .\data-ingestion-tool\docker\docker-compose.yml --project-directory .\ -p i4h down
+
+
+

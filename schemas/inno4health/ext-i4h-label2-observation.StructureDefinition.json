@@ -1,0 +1,187 @@
+{
+  "resourceType": "StructureDefinition",
+  "url": "https://inno4health.eu/fhir/StructureDefinition/Ext-i4h-label2-observation",
+  "name": "Ext-i4h-label2-observation",
+  "status": "draft",
+  "fhirVersion": "4.0.1",
+  "kind": "logical",
+  "abstract": false,
+  "type": "Ext-i4h-label2-observation",
+  "baseDefinition": "http://hl7.org/fhir/StructureDefinition/Element",
+  "derivation": "specialization",
+  "differential": {
+    "element": [
+      {
+        "id": "Ext-i4h-label2-observation",
+        "path": "Ext-i4h-label2-observation",
+        "min": 0,
+        "max": "*",
+        "type": [
+          {
+            "code": "Element"
+          }
+        ]
+      },
+      {
+        "id": "Ext-i4h-label2-observation.BicepsFemorisLeft",
+        "path": "Ext-i4h-label2-observation.BicepsFemorisLeft",
+        "short": "Patient identifier",
+        "definition": "Unique patient identifier  (a pseudoynm)",
+        "min": 0,
+        "max": "1",
+        "type": [
+          {
+            "code": "string",
+            "profile": [
+              "http://hl7.org/fhir/StructureDefinition/string"
+            ]
+          }
+        ]
+      },
+      {
+        "id": "Ext-i4h-label2-observation.BicepsFemorisRight",
+        "path": "Ext-i4h-label2-observation.BicepsFemorisRight",
+        "short": "Patient identifier",
+        "definition": "Unique patient identifier  (a pseudoynm)",
+        "min": 0,
+        "max": "1",
+        "type": [
+          {
+            "code": "string",
+            "profile": [
+              "http://hl7.org/fhir/StructureDefinition/string"
+            ]
+          }
+        ]
+      },
+      {
+        "id": "Ext-i4h-label2-observation.CalvesInnerLeft",
+        "path": "Ext-i4h-label2-observation.CalvesInnerLeft",
+        "short": "Patient identifier",
+        "definition": "Unique patient identifier  (a pseudoynm)",
+        "min": 0,
+        "max": "1",
+        "type": [
+          {
+            "code": "string",
+            "profile": [
+              "http://hl7.org/fhir/StructureDefinition/string"
+            ]
+          }
+        ]
+      },
+      {
+        "id": "Ext-i4h-label2-observation.CalvesInnerRight",
+        "path": "Ext-i4h-label2-observation.CalvesInnerRight",
+        "short": "Patient identifier",
+        "definition": "Unique patient identifier  (a pseudoynm)",
+        "min": 0,
+        "max": "1",
+        "type": [
+          {
+            "code": "string",
+            "profile": [
+              "http://hl7.org/fhir/StructureDefinition/string"
+            ]
+          }
+        ]
+      },
+      {
+        "id": "Ext-i4h-label2-observation.SemitendinosusLeft",
+        "path": "Ext-i4h-label2-observation.SemitendinosusLeft",
+        "short": "Patient identifier",
+        "definition": "Unique patient identifier  (a pseudoynm)",
+        "min": 0,
+        "max": "1",
+        "type": [
+          {
+            "code": "string",
+            "profile": [
+              "http://hl7.org/fhir/StructureDefinition/string"
+            ]
+          }
+        ]
+      },
+      {
+        "id": "Ext-i4h-label2-observation.SemitendinosusRight",
+        "path": "Ext-i4h-label2-observation.SemitendinosusRight",
+        "short": "Patient identifier",
+        "definition": "Unique patient identifier  (a pseudoynm)",
+        "min": 0,
+        "max": "1",
+        "type": [
+          {
+            "code": "string",
+            "profile": [
+              "http://hl7.org/fhir/StructureDefinition/string"
+            ]
+          }
+        ]
+      },
+      {
+        "id": "Ext-i4h-label2-observation.label",
+        "path": "Ext-i4h-label2-observation.label",
+        "short": "Patient identifier",
+        "definition": "Unique patient identifier  (a pseudoynm)",
+        "min": 0,
+        "max": "1",
+        "type": [
+          {
+            "code": "string",
+            "profile": [
+              "http://hl7.org/fhir/StructureDefinition/string"
+            ]
+          }
+        ]
+      },
+      {
+        "id": "Ext-i4h-label2-observation.set",
+        "path": "Ext-i4h-label2-observation.set",
+        "short": "Patient identifier",
+        "definition": "Unique patient identifier  (a pseudoynm)",
+        "min": 0,
+        "max": "1",
+        "type": [
+          {
+            "code": "string",
+            "profile": [
+              "http://hl7.org/fhir/StructureDefinition/string"
+            ]
+          }
+        ]
+      },
+      {
+        "id": "Ext-i4h-label2-observation.exercise",
+        "path": "Ext-i4h-label2-observation.exercise",
+        "short": "Patient identifier",
+        "definition": "Unique patient identifier  (a pseudoynm)",
+        "min": 0,
+        "max": "1",
+        "type": [
+          {
+            "code": "string",
+            "profile": [
+              "http://hl7.org/fhir/StructureDefinition/string"
+            ]
+          }
+        ]
+      },
+      {
+        "id": "Ext-i4h-label2-observation.rep",
+        "path": "Ext-i4h-label2-observation.rep",
+        "short": "Patient identifier",
+        "definition": "Unique patient identifier  (a pseudoynm)",
+        "min": 0,
+        "max": "1",
+        "type": [
+          {
+            "code": "string",
+            "profile": [
+              "http://hl7.org/fhir/StructureDefinition/string"
+            ]
+          }
+        ]
+      }
+    ]
+  }
+}

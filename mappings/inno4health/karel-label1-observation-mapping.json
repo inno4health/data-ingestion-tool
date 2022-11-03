@@ -1,0 +1,819 @@
+{
+  "url": "https://inno4health.eu/fhir/mappings/observation-mapping",
+  "name": "observation-mapping",
+  "title": "Mapping of karel emg data to Observation FHIR profile",
+  "source": [
+    {
+      "alias": "source",
+      "url": "https://inno4health.eu/fhir/StructureDefinition/Ext-i4h-label1-observation"
+    }
+  ],
+  "context": {
+    "exerciseNamesConceptMap": {
+      "category": "concept-map",
+      "url": "./exercise-names-concept-map.csv"
+    }
+  },
+  "mapping": [
+    {
+      "expression": {
+        "name": "result",
+        "language": "application/fhir-template+json",
+        "value": {
+          "resourceType": "Observation",
+          "id": "{{mpp:getHashedId('Observation', now().toString())}}",
+          "meta": {
+            "profile": ["https://inno4health.eu/fhir/StructureDefinition/I4H-AtheleteActivityObservation"],
+            "source": "{{%sourceSystem.sourceUri}}"
+          },
+          "status": "final",
+          "code": {
+            "coding": [
+              {
+                "code": "athlete-activity-emg-data",
+                "display": "EMG measurement values per set of observed exercise"
+              }
+            ]
+          },
+          "bodySite": {
+            "coding": [
+              {
+                "system": "http://snomed.info/sct",
+                "code": "85629004 | Adductor longus muscle structure |: 272741003 | laterality | = 7771000 | left |",
+                "display": "Left adductor longus muscle structure"
+              }
+            ]
+          },
+          "component": [
+            {
+              "code": {
+                "coding": [
+                  {
+                    "system": "https://inno4health.eu/fhir/CodeSystem/exercise-component",
+                    "code": "exercise-name",
+                    "display": "Exercise Name"
+                  }
+                ]
+              },
+              "valueCodeableConcept" : {
+                "coding": [
+                  {
+                    "system": "https://inno4health.eu/fhir/CodeSystem/exercise-names",
+                    "code": "{{mpp:getConcept(%exerciseNamesConceptMap, exercise.toString(), 'target_code')}}",
+                    "display": "{{? mpp:getConcept(%exerciseNamesConceptMap, exercise.toString(), 'target_display')}}"
+                  }
+                ]
+              }
+            },
+            {
+              "valueString": "{{set}}",
+              "code": {
+                "coding": [
+                  {
+                    "system": "http://snomed.info/sct",
+                    "code": "228449008",
+                    "display": "Frequency of exercise"
+                  }
+                ]
+              }
+            },
+            {
+              "valueString": "{{rep}}",
+              "code": {
+                "coding": [
+                  {
+                    "system": "http://snomed.info/sct",
+                    "code": "1202026006",
+                    "display": "Number of exercise repetitions completed"
+                  }
+                ]
+              }
+            },
+            {
+              "valueSampledData": {
+                "origin": {
+                  "value": 0.0,
+                  "unit": "mV",
+                  "system": "https://unitsofmeasure.org",
+                  "code": "mV"
+                },
+                "dimensions": 1,
+                "period": 1.0,
+                "data": "{{? AdductorLongusLeft }}"
+              },
+              "code": {
+                "coding": [
+                  {
+                    "system": "http://snomed.info/sct",
+                    "code": "251515005",
+                    "display": "Electromyography finding"
+                  }
+                ]
+              }
+            }
+          ]
+        }
+      }
+    },
+    {
+      "expression": {
+        "name": "result",
+        "language": "application/fhir-template+json",
+        "value": {
+          "resourceType": "Observation",
+          "id": "{{mpp:getHashedId('Observation', now().toString())}}",
+          "meta": {
+            "profile": ["https://inno4health.eu/fhir/StructureDefinition/I4H-AtheleteActivityObservation"],
+            "source": "{{%sourceSystem.sourceUri}}"
+          },
+          "status": "final",
+          "code": {
+            "coding": [
+              {
+                "code": "athlete-activity-emg-data",
+                "display": "EMG measurement values per set of observed exercise"
+              }
+            ]
+          },
+          "bodySite": {
+            "coding": [
+              {
+                "system": "http://snomed.info/sct",
+                "code": "85629004 | Adductor longus muscle structure |: 272741003 | laterality | = 24028007 | right |",
+                "display": "Right adductor longus muscle structure"
+              }
+            ]
+          },
+          "component": [
+            {
+              "code": {
+                "coding": [
+                  {
+                    "system": "https://inno4health.eu/fhir/CodeSystem/exercise-component",
+                    "code": "exercise-name",
+                    "display": "Exercise Name"
+                  }
+                ]
+              },
+              "valueCodeableConcept" : {
+                "coding": [
+                  {
+                    "system": "https://inno4health.eu/fhir/CodeSystem/exercise-names",
+                    "code": "{{mpp:getConcept(%exerciseNamesConceptMap, exercise.toString(), 'target_code')}}",
+                    "display": "{{? mpp:getConcept(%exerciseNamesConceptMap, exercise.toString(), 'target_display')}}"
+                  }
+                ]
+              }
+            },
+            {
+              "valueString": "{{set}}",
+              "code": {
+                "coding": [
+                  {
+                    "system": "http://snomed.info/sct",
+                    "code": "228449008",
+                    "display": "Frequency of exercise"
+                  }
+                ]
+              }
+            },
+            {
+              "valueString": "{{rep}}",
+              "code": {
+                "coding": [
+                  {
+                    "system": "http://snomed.info/sct",
+                    "code": "1202026006",
+                    "display": "Number of exercise repetitions completed"
+                  }
+                ]
+              }
+            },
+            {
+              "valueSampledData": {
+                "origin": {
+                  "value": 0.0,
+                  "unit": "mV",
+                  "system": "https://unitsofmeasure.org",
+                  "code": "mV"
+                },
+                "dimensions": 1,
+                "period": 1.0,
+                "data": "{{? AdductorLongusRight }}"
+              },
+              "code": {
+                "coding": [
+                  {
+                    "system": "http://snomed.info/sct",
+                    "code": "251515005",
+                    "display": "Electromyography finding"
+                  }
+                ]
+              }
+            }
+          ]
+        }
+      }
+    },
+    {
+      "expression": {
+        "name": "result",
+        "language": "application/fhir-template+json",
+        "value": {
+          "resourceType": "Observation",
+          "id": "{{mpp:getHashedId('Observation', now().toString())}}",
+          "meta": {
+            "profile": ["https://inno4health.eu/fhir/StructureDefinition/I4H-AtheleteActivityObservation"],
+            "source": "{{%sourceSystem.sourceUri}}"
+          },
+          "status": "final",
+          "code": {
+            "coding": [
+              {
+                "code": "athlete-activity-emg-data",
+                "display": "EMG measurement values per set of observed exercise"
+              }
+            ]
+          },
+          "bodySite": {
+            "coding": [
+              {
+                "system": "http://snomed.info/sct",
+                "code": "89241006 | Biceps femoris muscle structure |: 272741003 | laterality | = 7771000 | left |",
+                "display": "Left biceps femoris muscle structure"
+              }
+            ]
+          },
+          "component": [
+            {
+              "code": {
+                "coding": [
+                  {
+                    "system": "https://inno4health.eu/fhir/CodeSystem/exercise-component",
+                    "code": "exercise-name",
+                    "display": "Exercise Name"
+                  }
+                ]
+              },
+              "valueCodeableConcept" : {
+                "coding": [
+                  {
+                    "system": "https://inno4health.eu/fhir/CodeSystem/exercise-names",
+                    "code": "{{mpp:getConcept(%exerciseNamesConceptMap, exercise.toString(), 'target_code')}}",
+                    "display": "{{? mpp:getConcept(%exerciseNamesConceptMap, exercise.toString(), 'target_display')}}"
+                  }
+                ]
+              }
+            },
+            {
+              "valueString": "{{set}}",
+              "code": {
+                "coding": [
+                  {
+                    "system": "http://snomed.info/sct",
+                    "code": "228449008",
+                    "display": "Frequency of exercise"
+                  }
+                ]
+              }
+            },
+            {
+              "valueString": "{{rep}}",
+              "code": {
+                "coding": [
+                  {
+                    "system": "http://snomed.info/sct",
+                    "code": "1202026006",
+                    "display": "Number of exercise repetitions completed"
+                  }
+                ]
+              }
+            },
+            {
+              "valueSampledData": {
+                "origin": {
+                  "value": 0.0,
+                  "unit": "mV",
+                  "system": "https://unitsofmeasure.org",
+                  "code": "mV"
+                },
+                "dimensions": 1,
+                "period": 1.0,
+                "data": "{{? BicepsFemorisLeft }}"
+              },
+              "code": {
+                "coding": [
+                  {
+                    "system": "http://snomed.info/sct",
+                    "code": "251515005",
+                    "display": "Electromyography finding"
+                  }
+                ]
+              }
+            }
+          ]
+        }
+      }
+    },
+    {
+      "expression": {
+        "name": "result",
+        "language": "application/fhir-template+json",
+        "value": {
+          "resourceType": "Observation",
+          "id": "{{mpp:getHashedId('Observation', now().toString())}}",
+          "meta": {
+            "profile": ["https://inno4health.eu/fhir/StructureDefinition/I4H-AtheleteActivityObservation"],
+            "source": "{{%sourceSystem.sourceUri}}"
+          },
+          "status": "final",
+          "code": {
+            "coding": [
+              {
+                "code": "athlete-activity-emg-data",
+                "display": "EMG measurement values per set of observed exercise"
+              }
+            ]
+          },
+          "bodySite": {
+            "coding": [
+              {
+                "system": "http://snomed.info/sct",
+                "code": "89241006 | Biceps femoris muscle structure |: 272741003 | laterality | = 24028007 | right |",
+                "display": "Right biceps femoris muscle structure"
+              }
+            ]
+          },
+          "component": [
+            {
+              "code": {
+                "coding": [
+                  {
+                    "system": "https://inno4health.eu/fhir/CodeSystem/exercise-component",
+                    "code": "exercise-name",
+                    "display": "Exercise Name"
+                  }
+                ]
+              },
+              "valueCodeableConcept" : {
+                "coding": [
+                  {
+                    "system": "https://inno4health.eu/fhir/CodeSystem/exercise-names",
+                    "code": "{{mpp:getConcept(%exerciseNamesConceptMap, exercise.toString(), 'target_code')}}",
+                    "display": "{{? mpp:getConcept(%exerciseNamesConceptMap, exercise.toString(), 'target_display')}}"
+                  }
+                ]
+              }
+            },
+            {
+              "valueString": "{{set}}",
+              "code": {
+                "coding": [
+                  {
+                    "system": "http://snomed.info/sct",
+                    "code": "228449008",
+                    "display": "Frequency of exercise"
+                  }
+                ]
+              }
+            },
+            {
+              "valueString": "{{rep}}",
+              "code": {
+                "coding": [
+                  {
+                    "system": "http://snomed.info/sct",
+                    "code": "1202026006",
+                    "display": "Number of exercise repetitions completed"
+                  }
+                ]
+              }
+            },
+            {
+              "valueSampledData": {
+                "origin": {
+                  "value": 0.0,
+                  "unit": "mV",
+                  "system": "https://unitsofmeasure.org",
+                  "code": "mV"
+                },
+                "dimensions": 1,
+                "period": 1.0,
+                "data": "{{? BicepsFemorisRight }}"
+              },
+              "code": {
+                "coding": [
+                  {
+                    "system": "http://snomed.info/sct",
+                    "code": "251515005",
+                    "display": "Electromyography finding"
+                  }
+                ]
+              }
+            }
+          ]
+        }
+      }
+    },
+    {
+      "expression": {
+        "name": "result",
+        "language": "application/fhir-template+json",
+        "value": {
+          "resourceType": "Observation",
+          "id": "{{mpp:getHashedId('Observation', now().toString())}}",
+          "meta": {
+            "profile": ["https://inno4health.eu/fhir/StructureDefinition/I4H-AtheleteActivityObservation"],
+            "source": "{{%sourceSystem.sourceUri}}"
+          },
+          "status": "final",
+          "code": {
+            "coding": [
+              {
+                "code": "athlete-activity-emg-data",
+                "display": "EMG measurement values per set of observed exercise"
+              }
+            ]
+          },
+          "bodySite": {
+            "coding": [
+              {
+                "system": "http://snomed.info/sct",
+                "code": "392565009 | Posterior crural muscle structure |: 272741003 | laterality | = 7771000 | left |",
+                "display": "Left posterior crural muscle structure"
+              }
+            ]
+          },
+          "component": [
+            {
+              "code": {
+                "coding": [
+                  {
+                    "system": "https://inno4health.eu/fhir/CodeSystem/exercise-component",
+                    "code": "exercise-name",
+                    "display": "Exercise Name"
+                  }
+                ]
+              },
+              "valueCodeableConcept" : {
+                "coding": [
+                  {
+                    "system": "https://inno4health.eu/fhir/CodeSystem/exercise-names",
+                    "code": "{{mpp:getConcept(%exerciseNamesConceptMap, exercise.toString(), 'target_code')}}",
+                    "display": "{{? mpp:getConcept(%exerciseNamesConceptMap, exercise.toString(), 'target_display')}}"
+                  }
+                ]
+              }
+            },
+            {
+              "valueString": "{{set}}",
+              "code": {
+                "coding": [
+                  {
+                    "system": "http://snomed.info/sct",
+                    "code": "228449008",
+                    "display": "Frequency of exercise"
+                  }
+                ]
+              }
+            },
+            {
+              "valueString": "{{rep}}",
+              "code": {
+                "coding": [
+                  {
+                    "system": "http://snomed.info/sct",
+                    "code": "1202026006",
+                    "display": "Number of exercise repetitions completed"
+                  }
+                ]
+              }
+            },
+            {
+              "valueSampledData": {
+                "origin": {
+                  "value": 0.0,
+                  "unit": "mV",
+                  "system": "https://unitsofmeasure.org",
+                  "code": "mV"
+                },
+                "dimensions": 1,
+                "period": 1.0,
+                "data": "{{? CalvesInnerLeft }}"
+              },
+              "code": {
+                "coding": [
+                  {
+                    "system": "http://snomed.info/sct",
+                    "code": "251515005",
+                    "display": "Electromyography finding"
+                  }
+                ]
+              }
+            }
+          ]
+        }
+      }
+    },
+    {
+      "expression": {
+        "name": "result",
+        "language": "application/fhir-template+json",
+        "value": {
+          "resourceType": "Observation",
+          "id": "{{mpp:getHashedId('Observation', now().toString())}}",
+          "meta": {
+            "profile": ["https://inno4health.eu/fhir/StructureDefinition/I4H-AtheleteActivityObservation"],
+            "source": "{{%sourceSystem.sourceUri}}"
+          },
+          "status": "final",
+          "code": {
+            "coding": [
+              {
+                "code": "athlete-activity-emg-data",
+                "display": "EMG measurement values per set of observed exercise"
+              }
+            ]
+          },
+          "bodySite": {
+            "coding": [
+              {
+                "system": "http://snomed.info/sct",
+                "code": "392565009 | Posterior crural muscle structure |: 272741003 | laterality | = 24028007 | right |",
+                "display": "Right posterior crural muscle structure"
+              }
+            ]
+          },
+          "component": [
+            {
+              "code": {
+                "coding": [
+                  {
+                    "system": "https://inno4health.eu/fhir/CodeSystem/exercise-component",
+                    "code": "exercise-name",
+                    "display": "Exercise Name"
+                  }
+                ]
+              },
+              "valueCodeableConcept" : {
+                "coding": [
+                  {
+                    "system": "https://inno4health.eu/fhir/CodeSystem/exercise-names",
+                    "code": "{{mpp:getConcept(%exerciseNamesConceptMap, exercise.toString(), 'target_code')}}",
+                    "display": "{{? mpp:getConcept(%exerciseNamesConceptMap, exercise.toString(), 'target_display')}}"
+                  }
+                ]
+              }
+            },
+            {
+              "valueString": "{{set}}",
+              "code": {
+                "coding": [
+                  {
+                    "system": "http://snomed.info/sct",
+                    "code": "228449008",
+                    "display": "Frequency of exercise"
+                  }
+                ]
+              }
+            },
+            {
+              "valueString": "{{rep}}",
+              "code": {
+                "coding": [
+                  {
+                    "system": "http://snomed.info/sct",
+                    "code": "1202026006",
+                    "display": "Number of exercise repetitions completed"
+                  }
+                ]
+              }
+            },
+            {
+              "valueSampledData": {
+                "origin": {
+                  "value": 0.0,
+                  "unit": "mV",
+                  "system": "https://unitsofmeasure.org",
+                  "code": "mV"
+                },
+                "dimensions": 1,
+                "period": 1.0,
+                "data": "{{? CalvesInnerRight }}"
+              },
+              "code": {
+                "coding": [
+                  {
+                    "system": "http://snomed.info/sct",
+                    "code": "251515005",
+                    "display": "Electromyography finding"
+                  }
+                ]
+              }
+            }
+          ]
+        }
+      }
+    },
+    {
+      "expression": {
+        "name": "result",
+        "language": "application/fhir-template+json",
+        "value": {
+          "resourceType": "Observation",
+          "id": "{{mpp:getHashedId('Observation', now().toString())}}",
+          "meta": {
+            "profile": ["https://inno4health.eu/fhir/StructureDefinition/I4H-AtheleteActivityObservation"],
+            "source": "{{%sourceSystem.sourceUri}}"
+          },
+          "status": "final",
+          "code": {
+            "coding": [
+              {
+                "code": "athlete-activity-emg-data",
+                "display": "EMG measurement values per set of observed exercise"
+              }
+            ]
+          },
+          "bodySite": {
+            "coding": [
+              {
+                "system": "http://snomed.info/sct",
+                "code": "50340007 | Biceps femoris muscle structure |: 272741003 | laterality | = 7771000 | left |",
+                "display": "Left semitendinosus muscle structure"
+              }
+            ]
+          },
+          "component": [
+            {
+              "code": {
+                "coding": [
+                  {
+                    "system": "https://inno4health.eu/fhir/CodeSystem/exercise-component",
+                    "code": "exercise-name",
+                    "display": "Exercise Name"
+                  }
+                ]
+              },
+              "valueCodeableConcept" : {
+                "coding": [
+                  {
+                    "system": "https://inno4health.eu/fhir/CodeSystem/exercise-names",
+                    "code": "{{mpp:getConcept(%exerciseNamesConceptMap, exercise.toString(), 'target_code')}}",
+                    "display": "{{? mpp:getConcept(%exerciseNamesConceptMap, exercise.toString(), 'target_display')}}"
+                  }
+                ]
+              }
+            },
+            {
+              "valueString": "{{set}}",
+              "code": {
+                "coding": [
+                  {
+                    "system": "http://snomed.info/sct",
+                    "code": "228449008",
+                    "display": "Frequency of exercise"
+                  }
+                ]
+              }
+            },
+            {
+              "valueString": "{{rep}}",
+              "code": {
+                "coding": [
+                  {
+                    "system": "http://snomed.info/sct",
+                    "code": "1202026006",
+                    "display": "Number of exercise repetitions completed"
+                  }
+                ]
+              }
+            },
+            {
+              "valueSampledData": {
+                "origin": {
+                  "value": 0.0,
+                  "unit": "mV",
+                  "system": "https://unitsofmeasure.org",
+                  "code": "mV"
+                },
+                "dimensions": 1,
+                "period": 1.0,
+                "data": "{{? SemitendinosusLeft }}"
+              },
+              "code": {
+                "coding": [
+                  {
+                    "system": "http://snomed.info/sct",
+                    "code": "251515005",
+                    "display": "Electromyography finding"
+                  }
+                ]
+              }
+            }
+          ]
+        }
+      }
+    },
+    {
+      "expression": {
+        "name": "result",
+        "language": "application/fhir-template+json",
+        "value": {
+          "resourceType": "Observation",
+          "id": "{{mpp:getHashedId('Observation', now().toString())}}",
+          "meta": {
+            "profile": ["https://inno4health.eu/fhir/StructureDefinition/I4H-AtheleteActivityObservation"],
+            "source": "{{%sourceSystem.sourceUri}}"
+          },
+          "status": "final",
+          "code": {
+            "coding": [
+              {
+                "code": "athlete-activity-emg-data",
+                "display": "EMG measurement values per set of observed exercise"
+              }
+            ]
+          },
+          "bodySite": {
+            "coding": [
+              {
+                "system": "http://snomed.info/sct",
+                "code": "50340007 | Biceps femoris muscle structure |: 272741003 | laterality | = 24028007 | right |",
+                "display": "Right semitendinosus muscle structure"
+              }
+            ]
+          },
+          "component": [
+            {
+              "code": {
+                "coding": [
+                  {
+                    "system": "https://inno4health.eu/fhir/CodeSystem/exercise-component",
+                    "code": "exercise-name",
+                    "display": "Exercise Name"
+                  }
+                ]
+              },
+              "valueCodeableConcept" : {
+                "coding": [
+                  {
+                    "system": "https://inno4health.eu/fhir/CodeSystem/exercise-names",
+                    "code": "{{mpp:getConcept(%exerciseNamesConceptMap, exercise.toString(), 'target_code')}}",
+                    "display": "{{? mpp:getConcept(%exerciseNamesConceptMap, exercise.toString(), 'target_display')}}"
+                  }
+                ]
+              }
+            },
+            {
+              "valueString": "{{set}}",
+              "code": {
+                "coding": [
+                  {
+                    "system": "http://snomed.info/sct",
+                    "code": "228449008",
+                    "display": "Frequency of exercise"
+                  }
+                ]
+              }
+            },
+            {
+              "valueString": "{{rep}}",
+              "code": {
+                "coding": [
+                  {
+                    "system": "http://snomed.info/sct",
+                    "code": "1202026006",
+                    "display": "Number of exercise repetitions completed"
+                  }
+                ]
+              }
+            },
+            {
+              "valueSampledData": {
+                "origin": {
+                  "value": 0.0,
+                  "unit": "mV",
+                  "system": "https://unitsofmeasure.org",
+                  "code": "mV"
+                },
+                "dimensions": 1,
+                "period": 1.0,
+                "data": "{{? SemitendinosusRight }}"
+              },
+              "code": {
+                "coding": [
+                  {
+                    "system": "http://snomed.info/sct",
+                    "code": "251515005",
+                    "display": "Electromyography finding"
+                  }
+                ]
+              }
+            }
+          ]
+        }
+      }
+    }
+  ]
+}

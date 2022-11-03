@@ -1,0 +1,227 @@
+{
+  "id": "i4h-job",
+  "sourceSettings": {
+    "source": {
+      "jsonClass": "FileSystemSourceSettings",
+      "name": "inno4health-source",
+      "sourceUri": "https://inno4health.eu/emg-data",
+      "dataFolderPath": "test-data/inno4health",
+      "asStream": false
+    }
+  },
+  "sinkSettings": {
+    "jsonClass": "FhirRepositorySinkSettings",
+    "fhirRepoUrl": "${FHIR_REPO_URL}",
+    "writeErrorHandling": "continue"
+  },
+  "mappingErrorHandling": "continue",
+  "mappings": [
+    {
+      "mappingRef": "https://inno4health.eu/fhir/mappings/observation-mapping",
+      "sourceContext": {
+        "source": {
+          "jsonClass": "FileSystemSource",
+          "path": "label1/set1-adductor-side-lying-rep1.csv"
+        }
+      }
+    },
+    {
+      "mappingRef": "https://inno4health.eu/fhir/mappings/observation-mapping",
+      "sourceContext": {
+        "source": {
+          "jsonClass": "FileSystemSource",
+          "path": "label1/set1-SL-elevate-glute-bridge-rep10.csv"
+        }
+      }
+    },
+    {
+      "mappingRef": "https://inno4health.eu/fhir/mappings/observation-mapping",
+      "sourceContext": {
+        "source": {
+          "jsonClass": "FileSystemSource",
+          "path": "label1/set1-SL-hip-thrust-rep1.csv"
+        }
+      }
+    },
+    {
+      "mappingRef": "https://inno4health.eu/fhir/mappings/observation-mapping",
+      "sourceContext": {
+        "source": {
+          "jsonClass": "FileSystemSource",
+          "path": "label1/set1-SL-prone-curls-rep1.csv"
+        }
+      }
+    },
+    {
+      "mappingRef": "https://inno4health.eu/fhir/mappings/observation-mapping",
+      "sourceContext": {
+        "source": {
+          "jsonClass": "FileSystemSource",
+          "path": "label1/set1-SL-straight-knee-cal-raise-rep15.csv"
+        }
+      }
+    },
+    {
+      "mappingRef": "https://inno4health.eu/fhir/mappings/observation-mapping",
+      "sourceContext": {
+        "source": {
+          "jsonClass": "FileSystemSource",
+          "path": "label1/set2-adductor-side-lying-rep1.csv"
+        }
+      }
+    },
+    {
+      "mappingRef": "https://inno4health.eu/fhir/mappings/observation-mapping",
+      "sourceContext": {
+        "source": {
+          "jsonClass": "FileSystemSource",
+          "path": "label1/set2-SL-elevated-glute-bridge-rep10.csv"
+        }
+      }
+    },
+    {
+      "mappingRef": "https://inno4health.eu/fhir/mappings/observation-mapping",
+      "sourceContext": {
+        "source": {
+          "jsonClass": "FileSystemSource",
+          "path": "label1/set2-SL-hip-thrust-rep1.csv"
+        }
+      }
+    },
+    {
+      "mappingRef": "https://inno4health.eu/fhir/mappings/observation-mapping",
+      "sourceContext": {
+        "source": {
+          "jsonClass": "FileSystemSource",
+          "path": "label1/set2-SL-prone-curls-rep1.csv"
+        }
+      }
+    },
+    {
+      "mappingRef": "https://inno4health.eu/fhir/mappings/observation-mapping",
+      "sourceContext": {
+        "source": {
+          "jsonClass": "FileSystemSource",
+          "path": "label1/set2-SL-straight-knee-calf-raise-rep15.csv"
+        }
+      }
+    },
+    {
+      "mappingRef": "https://inno4health.eu/fhir/mappings/observation-mapping-2",
+      "sourceContext": {
+        "source": {
+          "jsonClass": "FileSystemSource",
+          "path": "label2/set1-DL-elevated-glute-bridge-rep10.csv"
+        }
+      }
+    },
+    {
+      "mappingRef": "https://inno4health.eu/fhir/mappings/observation-mapping-2",
+      "sourceContext": {
+        "source": {
+          "jsonClass": "FileSystemSource",
+          "path": "label2/set1-DL-glute-bridge-rep10.csv"
+        }
+      }
+    },
+    {
+      "mappingRef": "https://inno4health.eu/fhir/mappings/observation-mapping-2",
+      "sourceContext": {
+        "source": {
+          "jsonClass": "FileSystemSource",
+          "path": "label2/set1-isometric-at-0deg-rep1.csv"
+        }
+      }
+    },
+    {
+      "mappingRef": "https://inno4health.eu/fhir/mappings/observation-mapping-2",
+      "sourceContext": {
+        "source": {
+          "jsonClass": "FileSystemSource",
+          "path": "label2/set1-isometric-at-45deg-rep1.csv"
+        }
+      }
+    },
+    {
+      "mappingRef": "https://inno4health.eu/fhir/mappings/observation-mapping-2",
+      "sourceContext": {
+        "source": {
+          "jsonClass": "FileSystemSource",
+          "path": "label2/set1-isometric-at-90deg-rep1.csv"
+        }
+      }
+    },
+    {
+      "mappingRef": "https://inno4health.eu/fhir/mappings/observation-mapping-2",
+      "sourceContext": {
+        "source": {
+          "jsonClass": "FileSystemSource",
+          "path": "label2/set1-SL-elevated-glute-bridge-rep10.csv"
+        }
+      }
+    },
+    {
+      "mappingRef": "https://inno4health.eu/fhir/mappings/observation-mapping-2",
+      "sourceContext": {
+        "source": {
+          "jsonClass": "FileSystemSource",
+          "path": "label2/set1-SL-glute-bridge-rep10.csv"
+        }
+      }
+    },
+    {
+      "mappingRef": "https://inno4health.eu/fhir/mappings/observation-mapping-2",
+      "sourceContext": {
+        "source": {
+          "jsonClass": "FileSystemSource",
+          "path": "label2/set1-SL-prone-curls-rep1.csv"
+        }
+      }
+    },
+    {
+      "mappingRef": "https://inno4health.eu/fhir/mappings/observation-mapping-2",
+      "sourceContext": {
+        "source": {
+          "jsonClass": "FileSystemSource",
+          "path": "label2/set2-isometric-at-0deg-rep1.csv"
+        }
+      }
+    },
+    {
+      "mappingRef": "https://inno4health.eu/fhir/mappings/observation-mapping-2",
+      "sourceContext": {
+        "source": {
+          "jsonClass": "FileSystemSource",
+          "path": "label2/set2-isometric-at-45deg-rep1.csv"
+        }
+      }
+    },
+    {
+      "mappingRef": "https://inno4health.eu/fhir/mappings/observation-mapping-2",
+      "sourceContext": {
+        "source": {
+          "jsonClass": "FileSystemSource",
+          "path": "label2/set2-isometric-at-90deg-rep1.csv"
+        }
+      }
+    },
+    {
+      "mappingRef": "https://inno4health.eu/fhir/mappings/observation-mapping-2",
+      "sourceContext": {
+        "source": {
+          "jsonClass": "FileSystemSource",
+          "path": "label2/set2-SL-elevated-glute-bridge-rep10.csv"
+        }
+      }
+    },
+    {
+      "mappingRef": "https://inno4health.eu/fhir/mappings/observation-mapping-2",
+      "sourceContext": {
+        "source": {
+          "jsonClass": "FileSystemSource",
+          "path": "label2/set2-SL-prone-curls-rep1.csv"
+        }
+      }
+    }
+  ]
+}
