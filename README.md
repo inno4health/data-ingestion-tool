@@ -29,5 +29,5 @@ To clean FHIR repository which is using mongo:
 ```
 docker stop container_id
 docker rm container_id
-docker volume rm i4h_tofhirdb
+docker volume rm i4h_fhirdb
 ```
